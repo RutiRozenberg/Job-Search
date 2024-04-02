@@ -12,17 +12,6 @@ namespace Models
         public string Requirements { get; set; }
         public bool WorkFromHome { get; set; }
 
-
-        public Job(int id, string name, Type type, int hours, Area area, string require, bool fromHome)
-        {
-            Id = id;
-            Name = name;
-            Type = type;
-            Hours = hours;
-            WhichArea = area;
-            Requirements = require;
-            WorkFromHome = fromHome;
-        }
     }
 
 

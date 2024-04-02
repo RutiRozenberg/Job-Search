@@ -26,8 +26,7 @@ namespace Services
 
         public User GetByDetails(string email, string password)
         {
-            return Users.FirstOrDefault(u => u.Password.Equals(password) && u.Email.Equals(email));
-
+            return Users.FirstOrDefault(u => u.Password==password && u.Email==email);
         }
     }
 
