@@ -1,0 +1,16 @@
+
+#backend
+
+bin
+
+obj
+
+data
+
+#frontend
+
+.vscode 
+
+node_modules
+
+.angular
