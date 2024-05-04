@@ -1,0 +1,13 @@
+<form ngForm>
+    <div>
+        <label>name</label>
+        <input #e type="text" [(ngModel)]="userData.email" name="email" required>
+        <p *ngIf="(!e.value && isOnClick)">Email is a required field</p>
+    </div>
+    <div>
+        <label>password</label>    
+        <input #p type="password" [(ngModel)]="userData.password" name="password" required>
+        <p *ngIf="(!p.value && isOnClick)">Password is a required field</p>
+    </div>
+    <button type="submit" (click)="loginClick()">login</button>
+</form>
