@@ -10,19 +10,18 @@ import { Area } from '../models/area';
 export class jobService{
 
     constructor(private http:HttpClient) { 
-        this.getJobsListFromServer();
+        this.getJobsListFromServer()
     }
 
-    jobList:Job [] =[]
+    private jobList:Job [] =[]
 
-    getJobsListFromServer(){
-        this.http.get('https://localhost:44337/api/job/Get').subscribe((res: any) => this.jobList = res)
+    getJobsListFromServer() {
+        return this.http.get('https://localhost:7141/api/job')
     }
 
-    public get getJoblist(){
+    public get JobList(){
         return this.jobList
     }
-
     public filterJobsByType(type:Types){
         return this.jobList.filter(j=>j.type==type)
     }
