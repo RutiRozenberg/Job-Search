@@ -1,0 +1,18 @@
+<h3>{{job?.name!}}</h3>
+<div>
+    <p>Number of working hours:</p>
+    <p>{{job?.hours!}}</p>
+</div>
+<div>
+    <p>Requirements:</p>
+    <p>{{job?.requirements!}}</p>
+</div>
+<p *ngIf="job?.workFromHome!">work from home</p>
+<div>
+    <p>The work area:</p>
+    <p>{{job?.whichArea!}}</p>
+</div>
+<div>
+    <p>The work type:</p>
+    <p>{{job?.type!}}</p>
+</div>

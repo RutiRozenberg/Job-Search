@@ -1,6 +1,8 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Job } from '../../models/job';
 import { UserService } from '../../services/user-service';
+import { jobService } from '../../services/job-service';
+import { Area } from '../../models/area';
 
 @Component({
   selector: 'app-job',
@@ -9,15 +11,17 @@ import { UserService } from '../../services/user-service';
 })
 export class JobComponent {
 
-  constructor(private userSvc :UserService){
+  constructor(private userSvc :UserService , private jobSvc:jobService){
 
   }
+
   @Input() jobData:Job | null=null
-
-
 
   @Output('sendCVOutput') sendCVOutput: EventEmitter<any> = new EventEmitter<any>()
 
+  details:boolean =false
+
+  showOrHide:string = 'show'
 
   sendCv(){
     this.userSvc.addCvSent(this.userSvc.User?.email! , this.userSvc.User!).subscribe((res: any) => {
@@ -32,4 +36,13 @@ export class JobComponent {
   }
 
 
+  showDetails(){
+    this.details=!this.details
+    if(this.showOrHide=='show'){
+      this.showOrHide='hide'
+    }
+    else{
+      this.showOrHide='show'
+    }
+  }
 }
