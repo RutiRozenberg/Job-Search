@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { UserService } from '../../services/user-servuce';
+import { UserService } from '../../services/user-service'
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
@@ -14,11 +14,12 @@ export class LoginComponent {
   userData:any ={email: '' , password: ''}
   isOnClick:boolean=false
 
+   
   loginClick(){
     this.isOnClick=true;
-    this.userSrv.getFromServer(this.userData.password , this.userData.email)
-    if(window.localStorage.getItem("currentUser")){
-      this.router.navigate(['/jobs' ], {relativeTo:this.active})
+    this.userSrv.getFromServer(this.userData.password , this.userData.email).subscribe((res: any) => this.userSrv.updateUser(res))   
+    if(localStorage.getItem("currentUser")){
+      this.router.navigate(['/' ], {relativeTo:this.active})
     }
     else{
       if(this.userData.email!='' && this.userData.password!=''){

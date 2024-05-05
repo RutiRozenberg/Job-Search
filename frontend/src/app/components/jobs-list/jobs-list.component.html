@@ -1,0 +1,4 @@
+<h1>JOB LIST</h1>
+<div *ngFor="let j of jobList">
+    <app-job [jobData]="j" (sendCVOutput)="sendCVOutput()"></app-job>
+</div>
