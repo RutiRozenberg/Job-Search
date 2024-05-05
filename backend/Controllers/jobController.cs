@@ -6,7 +6,7 @@ namespace controller
 {
 
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     public class jobController : ControllerBase
     {
 

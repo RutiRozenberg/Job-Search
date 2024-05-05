@@ -2,6 +2,8 @@ using System.Text.Json;
 using Interfaces;
 using Microsoft.AspNetCore.Routing.Constraints;
 using Models;
+using System.IO;
+
 
 namespace Services
 {
@@ -24,9 +26,28 @@ namespace Services
             }
         }
 
+        private void saveToFile()
+        {
+            File.WriteAllText(PathFile, JsonSerializer.Serialize(Users));
+        }
+
         public User GetByDetails(string email, string password)
         {
             return Users.FirstOrDefault(u => u.Password==password && u.Email==email);
+        }
+
+        public bool AddSendCv(string email , User user){
+            if(user.Email == email){
+                User userToUpdate = Users.FirstOrDefault(u=> u.Email==email);
+                int index = Users.IndexOf(userToUpdate);
+                if (index != -1 ){
+                    Users[index].CountOfCVsSent++;
+                    saveToFile();
+                    return true;
+                }  
+            }
+            return false;
+            
         }
     }
 

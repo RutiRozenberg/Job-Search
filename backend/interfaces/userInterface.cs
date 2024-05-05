@@ -6,6 +6,8 @@ namespace Interfaces
     {
         
         User GetByDetails(string email,string password);
+
+        bool AddSendCv(string email , User user);
     
     } 
 }

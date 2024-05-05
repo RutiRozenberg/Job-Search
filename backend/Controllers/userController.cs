@@ -23,5 +23,12 @@ namespace controller
             return UserService.GetByDetails(email, password);
         }
 
+
+        [HttpPut("{email}")]
+        public ActionResult<bool> Post(string email ,[FromBody] User user)
+        {
+            return UserService.AddSendCv(email , user);
+        } 
+
     }
 }
