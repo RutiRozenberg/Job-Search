@@ -8,14 +8,7 @@ import { Job } from '../../models/job';
   styleUrl: './jobs-list.component.scss'
 })
 export class JobsListComponent  {
-  constructor(private jobSvc:jobService){
 
-  }
-
-  // ngOnInit(): void {
-  //   this.jobSvc.getJobsListFromServer().subscribe((res: any) => this.jobList = res )
-
-  // }
 
   @Output('CVChange') CVChange: EventEmitter<any> = new EventEmitter<any>()
 

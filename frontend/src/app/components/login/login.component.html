@@ -1,13 +1,14 @@
-<form ngForm>
-    <div>
-        <label>name</label>
-        <input #e type="text" [(ngModel)]="userData.email" name="email" required>
-        <p *ngIf="(!e.value && isOnClick)">Email is a required field</p>
-    </div>
-    <div>
-        <label>password</label>    
-        <input #p type="password" [(ngModel)]="userData.password" name="password" required>
-        <p *ngIf="(!p.value && isOnClick)">Password is a required field</p>
-    </div>
-    <button type="submit" (click)="loginClick()">login</button>
+<form ngForm class=" bg-dark-subtle text-dark-emphasis">
+
+    <h1 class="text-danger">Login</h1>
+
+    <label>email</label>
+    <input #e type="text" [(ngModel)]="userData.email" name="email" required>
+    <span *ngIf="(!e.value && isOnClick)">Email is a required field</span>
+
+    <label>password</label>
+    <input #p type="password" [(ngModel)]="userData.password" name="password" required>
+    <span *ngIf="(!p.value && isOnClick)">Password is a required field</span>
+    <button type="submit" (click)="loginClick()" class="btn btn-danger">login</button>
+
 </form>

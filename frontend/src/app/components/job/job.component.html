@@ -1,7 +1,9 @@
-<h2>{{jobData?.name}} </h2>
-<div>Type: {{jobSvc.getTypes()[jobData?.type!]}}</div>
-<div>Hours: {{jobData?.hours}}</div>
-<div>Area: {{jobSvc.getAreas()[jobData?.whichArea!]}}</div>
-<button (click)="showDetails()">{{showOrHide}} details</button>
-<button (click)="sendCv()">Send cv</button>
-<app-show-details *ngIf="details" [job]="jobData"></app-show-details>
+<div class="card-body" >
+    <h2 class="card-title">{{jobData?.name}} </h2>
+    <div class="card-text">Type: {{jobSvc.getTypes()[jobData?.type!]}}</div>
+    <div class="card-text">Hours: {{jobData?.hours}}</div>
+    <div class="card-text">Area: {{jobSvc.getAreas()[jobData?.whichArea!]}}</div>
+    <button (click)="showDetails()" type="button" class="btn btn-outline-secondary m-2 btn-sm">{{showOrHide}} details</button>
+    <button (click)="sendCv()" type="button" class="btn btn-outline-secondary m-2 btn-sm">Send cv</button>
+    <app-show-details *ngIf="details" [job]="jobData"></app-show-details>
+</div>

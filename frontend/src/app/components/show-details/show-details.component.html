@@ -1,18 +1,19 @@
 <h3>{{job?.name!}}</h3>
 <div>
-    <p>Number of working hours:</p>
-    <p>{{job?.hours!}}</p>
+    <span style="font-weight: 500;">Number of working hours:</span>
+    <span>{{job?.hours!}}</span>
 </div>
 <div>
-    <p>Requirements:</p>
+    <span style="font-weight: 500;">Requirements:</span>
     <p>{{job?.requirements!}}</p>
 </div>
-<div *ngIf="job?.workFromHome!">work from home</div>
+<div *ngIf="job?.workFromHome!">
+    <span style="font-weight: 500;">work from home</span>
 <div>
-    <p>The work area:</p>
-    <p>{{jobSvc.getAreas()[job?.whichArea!]}}</p>
+    <span style="font-weight: 500;">The work area:</span>
+    <span>{{jobSvc.getAreas()[job?.whichArea!]}}</span>
 </div>
 <div>
-    <p>The work type:</p>
-    <p>{{jobSvc.getTypes()[job?.type!]}}</p>
+    <span style="font-weight: 500;">The work type:</span>
+    <span>{{jobSvc.getTypes()[job?.type!]}}</span>
 </div>
