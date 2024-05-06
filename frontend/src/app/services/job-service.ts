@@ -22,15 +22,30 @@ export class jobService{
     public get JobList(){
         return this.jobList
     }
-    public filterJobsByType(type:Types){
-        return this.jobList.filter(j=>j.type==type)
+
+    updateList(list:Job[]){        
+        list.forEach(j=> this.jobList.push(j))
+        return this.jobList
+    }
+
+    public filterJobsByType(type:Types){        
+        return this.jobList.filter(j=> j.type===type )
     }
 
 
     public filterJobsByArea(area:Area){
-        return this.jobList.filter(j=>j.WhichArea==area)
+        return this.jobList.filter(j=>j.whichArea==area)
     }
 
+    getTypes(){
+        return Object.values(Types).filter(v=> Number.isNaN(Number(v)));
+    }
+
+    getAreas(){
+        return Object.values(Area).filter(v=> Number.isNaN(Number(v)));
+    }
+    
+    
     
 
 }

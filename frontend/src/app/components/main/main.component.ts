@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { User } from '../../models/user';
 import { UserService } from '../../services/user-service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { jobService } from '../../services/job-service';
+import { Job } from '../../models/job';
 
 @Component({
   selector: 'app-main',
@@ -9,7 +11,7 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrl: './main.component.scss'
 })
 export class MainComponent implements OnInit {
-  constructor(private userSrv:UserService ,private router:Router, private active:ActivatedRoute){
+  constructor(private userSrv:UserService ,private router:Router, private active:ActivatedRoute , public jobSvc:jobService){
 
   }
 
@@ -18,14 +20,19 @@ export class MainComponent implements OnInit {
     if(!this.user){
       this.router.navigate(['/login' ], {relativeTo:this.active})
     }
+    this.jobSvc.getJobsListFromServer().subscribe((res: any) => this.jobList =this.jobSvc.updateList(res) )    
   }
 
   user :User |null=null
+  jobList:Job[] =[]
 
   CVChange(){
     this.user=this.userSrv.User
   }
 
+  filterByType(){
+    this.jobList = this.jobSvc.filterJobsByType(this.user?.type!)
+  }
   
 
 }

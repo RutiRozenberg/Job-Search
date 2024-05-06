@@ -1,11 +1,11 @@
 <header>
     <p>name:  {{user!.name}}</p>
-    <a>type:  {{user!.type}}</a>
+    <button (click)="filterByType()">type:  {{user!.type}}</button>
     <img src="">
     <p>you send {{user!.countOfCVsSent}} CVs</p>
 </header>
-
-<app-jobs-list (CVChange)="CVChange()"></app-jobs-list>
+<!-- <app-filter-jobs></app-filter-jobs> -->
+<app-jobs-list (CVChange)="CVChange()" [jobList]="jobList"></app-jobs-list>
 
 <footer>
     <h2>Contact Information</h2>
