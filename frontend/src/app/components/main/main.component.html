@@ -1,6 +1,6 @@
 <header>
     <p>name:  {{user!.name}}</p>
-    <button (click)="filterByType()">type:  {{user!.type}}</button>
+    <button (click)="filterByType()">type:  {{jobSvc.getTypes()[user!.type]}}</button>
     <img src="">
     <p>you send {{user!.countOfCVsSent}} CVs</p>
 </header>

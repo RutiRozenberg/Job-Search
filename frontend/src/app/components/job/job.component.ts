@@ -11,7 +11,7 @@ import { Area } from '../../models/area';
 })
 export class JobComponent {
 
-  constructor(private userSvc :UserService , private jobSvc:jobService){
+  constructor(private userSvc :UserService , public jobSvc:jobService){
 
   }
 

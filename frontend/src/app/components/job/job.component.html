@@ -1,7 +1,7 @@
 <h2>{{jobData?.name}} </h2>
-<div>Type: {{jobData?.type}}</div>
+<div>Type: {{jobSvc.getTypes()[jobData?.type!]}}</div>
 <div>Hours: {{jobData?.hours}}</div>
-<div>Area: {{jobData?.whichArea}}</div>
+<div>Area: {{jobSvc.getAreas()[jobData?.whichArea!]}}</div>
 <button (click)="showDetails()">{{showOrHide}} details</button>
 <button (click)="sendCv()">Send cv</button>
 <app-show-details *ngIf="details" [job]="jobData"></app-show-details>

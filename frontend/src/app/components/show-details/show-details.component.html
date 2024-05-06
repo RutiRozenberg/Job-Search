@@ -7,12 +7,12 @@
     <p>Requirements:</p>
     <p>{{job?.requirements!}}</p>
 </div>
-<p *ngIf="job?.workFromHome!">work from home</p>
+<div *ngIf="job?.workFromHome!">work from home</div>
 <div>
     <p>The work area:</p>
-    <p>{{job?.whichArea!}}</p>
+    <p>{{jobSvc.getAreas()[job?.whichArea!]}}</p>
 </div>
 <div>
     <p>The work type:</p>
-    <p>{{job?.type!}}</p>
+    <p>{{jobSvc.getTypes()[job?.type!]}}</p>
 </div>

@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Job } from '../../models/job';
+import { jobService } from '../../services/job-service';
 
 @Component({
   selector: 'app-show-details',
@@ -7,6 +8,11 @@ import { Job } from '../../models/job';
   styleUrl: './show-details.component.scss'
 })
 export class ShowDetailsComponent {
+
+  constructor(public jobSvc:jobService){
+
+  }
+  
   @Input() job :Job | null = null 
 
 }
