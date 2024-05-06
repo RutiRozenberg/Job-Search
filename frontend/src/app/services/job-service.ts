@@ -10,10 +10,12 @@ import { Area } from '../models/area';
 export class jobService{
 
     constructor(private http:HttpClient) { 
-        this.getJobsListFromServer()
+
     }
 
     private jobList:Job [] =[]
+
+    jobListToView:Job[]=[]
 
     getJobsListFromServer() {
         return this.http.get('https://localhost:7141/api/job')
@@ -23,18 +25,24 @@ export class jobService{
         return this.jobList
     }
 
-    updateList(list:Job[]){        
+    updateJobListToView(){
+        this.jobListToView=this.jobList
+        return this.jobListToView
+    }
+
+    updateList(list:Job[]){ 
+        this.jobList=[]       
         list.forEach(j=> this.jobList.push(j))
-        return this.jobList
+        this.jobListToView=this.jobList
+        return this.jobListToView
     }
 
     public filterJobsByType(type:Types){        
-        return this.jobList.filter(j=> j.type===type )
+        return this.jobListToView.filter(j=> j.type===type )
     }
 
-
     public filterJobsByArea(area:Area){
-        return this.jobList.filter(j=>j.whichArea==area)
+        return this.jobListToView.filter(j=>j.whichArea==area)
     }
 
     getTypes(){
@@ -44,9 +52,5 @@ export class jobService{
     getAreas(){
         return Object.values(Area).filter(v=> Number.isNaN(Number(v)));
     }
-    
-    
-    
 
 }
-

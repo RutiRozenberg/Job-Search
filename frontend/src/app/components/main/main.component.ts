@@ -14,7 +14,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 })
 export class MainComponent implements OnInit {
   constructor(private userSrv:UserService ,private router:Router, private active:ActivatedRoute , public jobSvc:jobService,private modalService: NgbModal){
-
+    this.jobSvc.getJobsListFromServer().subscribe((res: any) => this.jobList =this.jobSvc.updateList(res) )    
   }
 
   public open(modal: any): void {
@@ -22,11 +22,11 @@ export class MainComponent implements OnInit {
   }
   
   ngOnInit(){
+    this.jobList=this.jobSvc.updateJobListToView()
     this.user = this.userSrv.User
     if(!this.user){
       this.router.navigate(['/login' ], {relativeTo:this.active})
     }
-    this.jobSvc.getJobsListFromServer().subscribe((res: any) => this.jobList =this.jobSvc.updateList(res) )    
   }
 
   user :User |null=null
