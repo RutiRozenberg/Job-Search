@@ -1,9 +1,9 @@
 <header>
     <nav  class="nav nav-tabs">
-        <img src="" (click)="logoOnClick()" class="nav-item nav-link active" aria-current="page"  >
-        <div class="nav-item nav-link disabled" aria-disabled="true"> {{user!.name}}</div>
+        <img src="../../../assets/logo.jpg" style="width: 200px;" (click)="logoOnClick()" class="nav-item nav-link active" aria-current="page"  >
+        <button class="nav-item nav-link disabled" aria-disabled="true"> {{user!.name}}</button>
         <button (click)="filterByType()" class="nav-item nav-link text-danger" > {{jobSvc.getTypes()[user!.type]}}</button>
-        <div class="nav-item nav-link disabled" aria-disabled="true">you send {{user!.countOfCVsSent}} CVs</div>
+        <button class="nav-item nav-link disabled" aria-disabled="true">you send {{user!.countOfCVsSent}} CVs</button>
     </nav>
 </header>
 <!-- <app-filter-jobs></app-filter-jobs> -->
