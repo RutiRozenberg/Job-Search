@@ -1,6 +1,6 @@
 
-
-
 export enum Area{
-    North, South, Center   
+
+    North, South, Center
+       
 }

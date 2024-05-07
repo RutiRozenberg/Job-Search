@@ -17,9 +17,9 @@ export class MainComponent implements OnInit {
     this.jobSvc.getJobsListFromServer().subscribe((res: any) => this.jobList =this.jobSvc.updateList(res) )    
   }
 
-  public open(modal: any): void {
-    this.modalService.open(modal);
-  }
+  // public open(modal: any): void {
+  //   this.modalService.open(modal);
+  // }
   
   ngOnInit(){
     this.jobList=this.jobSvc.updateJobListToView()
@@ -31,13 +31,26 @@ export class MainComponent implements OnInit {
 
   user :User |null=null
   jobList:Job[] =[]
+  filterByUsersType : boolean = false
 
   CVChange(){
     this.user=this.userSrv.User
   }
 
-  filterByType(){
-    this.jobList = this.jobSvc.filterJobsByType(this.user?.type!)
+  typeOnClick(){
+    if(!this.filterByUsersType){
+      this.jobSvc.filterJobsByType(this.user?.type!)
+    }
+    else{
+      this.jobSvc.updateJobListToView()
+    }
+    this.filterByUsersType =!this.filterByUsersType
+    this.updateList()
+
+  }
+
+  updateList(){
+    this.jobList=this.jobSvc.jobListToView
   }
 
   logoOnClick(){

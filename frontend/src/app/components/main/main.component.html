@@ -2,11 +2,11 @@
     <nav  class="nav nav-tabs">
         <img src="../../../assets/logo.jpg" style="width: 200px;" (click)="logoOnClick()" class="nav-item nav-link active" aria-current="page"  >
         <button class="nav-item nav-link disabled" aria-disabled="true"> {{user!.name}}</button>
-        <button (click)="filterByType()" class="nav-item nav-link text-danger" > {{jobSvc.getTypes()[user!.type]}}</button>
+        <button (click)="typeOnClick()" class="nav-item nav-link text-danger" > {{jobSvc.getTypes()[user!.type]}}</button>
         <button class="nav-item nav-link disabled" aria-disabled="true">you send {{user!.countOfCVsSent}} CVs</button>
     </nav>
 </header>
-<!-- <app-filter-jobs></app-filter-jobs> -->
+<app-filter-jobs (filterAction)="updateList()" (cancelAction)="updateList()"></app-filter-jobs>
 <app-jobs-list (CVChange)="CVChange()" [jobList]="jobList" class="text-center" ></app-jobs-list>
 
 <footer class="mt-5 p-5 bg-dark-subtle text-dark-emphasis text-center">

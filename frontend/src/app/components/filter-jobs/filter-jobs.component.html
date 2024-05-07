@@ -1,0 +1,16 @@
+<form ngForm>
+    <div>
+        <label>Filter by area</label>
+        <select [(ngModel)]="area" name="area">
+            <option  *ngFor="let a of jobSvc.getAreas()" >{{a}}</option>
+        </select>
+    </div>
+    <div>
+        <label>Filter by type</label>
+        <select  [(ngModel)]="type" name="type" >
+            <option  *ngFor="let t of jobSvc.getTypes()">{{t}}</option>
+        </select>
+    </div>
+    <button (click)="filterJobs()">Search jobs</button>
+    <button (click)="cancelOnClick()">Cancel search</button>
+</form>

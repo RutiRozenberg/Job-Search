@@ -30,7 +30,6 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     ReactiveFormsModule,
     HttpClientModule,
     NgbModule,
-    
   ],
   providers: [],
   bootstrap: [AppComponent]

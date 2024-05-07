@@ -35,7 +35,6 @@ export class JobComponent {
     });
   }
 
-
   showDetails(){
     this.details=!this.details
     if(this.showOrHide=='show'){
