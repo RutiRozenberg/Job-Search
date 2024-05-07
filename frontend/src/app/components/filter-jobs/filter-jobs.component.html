@@ -1,16 +1,20 @@
-<form ngForm>
-    <div>
-        <label>Filter by area</label>
-        <select [(ngModel)]="area" name="area">
-            <option  *ngFor="let a of jobSvc.getAreas()" >{{a}}</option>
-        </select>
-    </div>
-    <div>
-        <label>Filter by type</label>
-        <select  [(ngModel)]="type" name="type" >
-            <option  *ngFor="let t of jobSvc.getTypes()">{{t}}</option>
-        </select>
-    </div>
-    <button (click)="filterJobs()">Search jobs</button>
-    <button (click)="cancelOnClick()">Cancel search</button>
+<form ngForm class="d-flex justify-content-end m-3">
+
+    <label class="mx-2">area</label>
+    <select style="height: 50%; width: auto" [(ngModel)]="area" name="area" class="form-select form-select-sm "
+        aria-label="Small select example">
+        <option *ngFor="let a of jobSvc.getAreas()">{{a}}</option>
+    </select>
+
+    <label class="mx-2">type</label>
+    <select style="height: 50%; width: auto;" [(ngModel)]="type" name="type" class="form-select form-select-sm"
+        aria-label="Small select example">
+        <option *ngFor="let t of jobSvc.getTypes()">{{t}}</option>
+    </select>
+
+    <button style="height: 50%; width: auto;" (click)="filterJobs()" class="col-md-2 btn btn-danger mx-2">Search
+        jobs</button>
+    <button style="height: 50%; width: auto;" (click)="cancelOnClick()" class="col-md-2 btn btn-danger">Cancel
+        search</button>
+
 </form>
