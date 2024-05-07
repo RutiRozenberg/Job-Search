@@ -2,13 +2,18 @@
 
     <h1 class="text-danger">Login</h1>
 
-    <label>email</label>
-    <input #e type="text" [(ngModel)]="userData.email" name="email" required>
+    <div class="form-floating mb-3">
+        <input #e type="text" [(ngModel)]="userData.email" name="email" required  class="form-control" id="floatingInput" placeholder="name@example.com">
+        <label>Email address</label>
+    </div>
     <span *ngIf="(!e.value && isOnClick)">Email is a required field</span>
 
-    <label>password</label>
-    <input #p type="password" [(ngModel)]="userData.password" name="password" required>
+    <div class="form-floating">
+        <input #p type="password" [(ngModel)]="userData.password" name="password" required class="form-control" id="floatingPassword" placeholder="Password">
+        <label for="floatingPassword">Password</label>
+    </div>
     <span *ngIf="(!p.value && isOnClick)">Password is a required field</span>
+
     <button type="submit" (click)="loginClick()" class="btn btn-danger">login</button>
 
 </form>
