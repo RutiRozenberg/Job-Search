@@ -11,6 +11,8 @@ import { MainComponent } from './components/main/main.component';
 import { FilterJobsComponent } from './components/filter-jobs/filter-jobs.component';
 import { ShowDetailsComponent } from './components/show-details/show-details.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { BackgroungDirective } from './directives/backgroung.directive';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 
 
 @NgModule({
@@ -22,6 +24,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     MainComponent,
     FilterJobsComponent,
     ShowDetailsComponent,
+    BackgroungDirective,
+    PageNotFoundComponent,
   ],
   imports: [
     BrowserModule,
