@@ -1,4 +1,4 @@
-<div class="card-body" >
+<div class="card-body" [appBackgroung]="'rgb(225, 225, 229)'"  >
     <h2 class="card-title">{{jobData?.name}} </h2>
     <div class="card-text">Type: {{jobSvc.getTypes()[jobData?.type!]}}</div>
     <div class="card-text">Hours: {{jobData?.hours}}</div>
