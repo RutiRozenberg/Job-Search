@@ -72,9 +72,10 @@
               "buildTarget": "rentCostume:build:production"
             },
             "development": {
-              "buildTarget": "rentCostume:build:development"
-            }
-          },
+              "buildTarget": "rentCostume:build:development",
+              "host": "0.0.0.0", 
+              "port": "4200"
+            },
           "defaultConfiguration": "development"
         },
         "extract-i18n": {
